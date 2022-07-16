@@ -15,10 +15,10 @@ export class AuthService {
 
 
 
-  // @ts-ignore
+
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/users';
-    this.http
+    return this.http
       .post<AuthResponseInterface>(url, data)
       .pipe(map((response: AuthResponseInterface) => response.user));
   }
