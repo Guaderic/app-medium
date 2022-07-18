@@ -9,6 +9,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import {TobBarModule} from './shared/modules/topBar/tob-bar.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
-      autoPause: true,
+      autoPause: true
     }),
     EffectsModule.forRoot([]),
+    TobBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

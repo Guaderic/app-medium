@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BackendErrorMessagesComponent } from './backend-error-messages.component';
+import { BackendErrorMessagesComponent } from './components/backend-error-messages.component';
 
 
 
