@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FeedComponent } from './components/Feed/feed.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FeedComponent} from './components/Feed/feed.component';
+import {GetFeedEffect} from './store/effects/getFeed.effect';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './store/reducers';
+import {FeedService} from './services/feed.service';
 import {RouterModule} from '@angular/router';
 
-const routes = [
-  {
-  path:'', component: FeedComponent
-  }
-]
 
 @NgModule({
   declarations: [
@@ -15,7 +15,14 @@ const routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    EffectsModule.forFeature([GetFeedEffect]),
+    StoreModule.forFeature('feed', [reducers]),
+    RouterModule
+  ],
+  exports: [
+    FeedComponent
+  ],
+  providers: [FeedService]
 })
-export class FeedModule { }
+export class FeedModule {
+}
