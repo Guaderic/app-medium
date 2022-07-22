@@ -7,6 +7,9 @@ import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/reducers';
 import {FeedService} from './services/feed.service';
 import {RouterModule} from '@angular/router';
+import {ErrorMessageModule} from '../errorMessage/errorMessage.module';
+import {IsLoadingModule} from '../isLoading/isLoading.module';
+import {PaginationModule} from '../pagination/pagination.module';
 
 
 @NgModule({
@@ -16,8 +19,11 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     EffectsModule.forFeature([GetFeedEffect]),
-    StoreModule.forFeature('feed', [reducers]),
-    RouterModule
+    StoreModule.forFeature('feed', reducers),
+    RouterModule,
+    ErrorMessageModule,
+    IsLoadingModule,
+    PaginationModule
   ],
   exports: [
     FeedComponent
